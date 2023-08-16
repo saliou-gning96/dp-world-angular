@@ -1,0 +1,18 @@
+<!-- <app-form-search></app-form-search> -->
+
+<app-steper [steps]="steps"></app-steper>
+
+<div class="page-specifique-content">
+    <div [class.d-none]="activeStep !== 'transit'">
+        <app-list-transit (selectTransiteEvent)="selectTransit($event)" [listTransits]="listTransits"></app-list-transit>
+    </div>
+
+    <div [class.d-none]="activeStep !== 'article'">
+        <app-list-article (selectArticleEvent)="selectArticle($event)" [listArticles]="listArticles" [listTransits]="listTransits" [poNumber]="poNumber"></app-list-article>
+    </div>
+
+    <div class="actions d-flex">
+        <button class="d-flex align-items-center btn app-btn-outline-dark" (click)="prev()">Précédent</button>
+        <button class="d-flex align-items-center btn app-btn-primary" (click)="next()">Continuer</button>
+    </div>
+</div>

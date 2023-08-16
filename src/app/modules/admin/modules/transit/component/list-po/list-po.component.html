@@ -1,0 +1,57 @@
+<div class="d-flex search">
+    <div class="select-item">
+        <ng-select [items]="listDepartment | async" 
+                placeholder="Département"
+                bindLabel="Code" 
+                bindValue="Code" 
+                [(ngModel)]="selectedDepartment">
+        </ng-select>
+    </div>
+    <div class="select-item">
+        <ng-select [items]="listVendor | async" 
+                placeholder="Fournisseur"
+                bindLabel="Name" 
+                bindValue="Id" 
+                [(ngModel)]="selectedVendor">
+        </ng-select>
+    </div>
+    <button class="d-flex align-items-center btn app-btn-primary" (click)="search()">
+        <span>RECHERCHER</span>
+    </button>
+</div>
+
+<div class="table-title">
+    Liste des PO
+</div>
+
+<table class="table">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Numéro</th>
+            <th scope="col">Département</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="!isLoading">
+            <tr *ngFor="let po of listPO" [class.active]="null !== selectedPO && selectedPO.Key === po.Key" (click)="selectPO(po)">
+                <th scope="row">{{ po.Number }}</th>
+                <td>{{ po.DepartmentDescription }}</td>
+            </tr>
+        </ng-container>
+        <ng-container *ngIf="!isLoading && listPO.length === 0">
+            <tr>
+                <td colspan="100%" class="text-center">
+                    Pas de PO.
+                </td>
+            </tr>
+        </ng-container>
+        <ng-container *ngIf="isLoading">
+            <tr>
+                <td colspan="100%" class="text-center">
+                    <div class="spinner-border" role="status">
+                    </div>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+  </table>

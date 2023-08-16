@@ -1,0 +1,9 @@
+<div class="recap">
+    <h3 *ngIf="po">Création d'un dossier transit sur le PO: <b>{{ po.Number }}</b></h3>
+
+    <div>Contenant les article suivants</div>
+
+    <ul>
+        <li *ngFor="let article of listArticles"> {{ article.Description }} </li>
+    </ul>
+</div>

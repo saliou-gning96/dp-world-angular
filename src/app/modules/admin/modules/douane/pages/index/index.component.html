@@ -1,0 +1,32 @@
+<div class="page-specifique-content">
+    <div class="table-title">
+        Liste des dossiers douane
+    </div>
+
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Numéro</th>
+                <th scope="col">Poids</th>
+                <th scope="col">Prix transport</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="!isLoading">
+                <tr *ngFor="let douane of listDouane">
+                    <th scope="row">{{ douane.Numero }}</th>
+                    <td>{{ douane.Poids }}</td>
+                    <td>{{ douane.PrixTransport }}</td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="isLoading">
+                <tr>
+                    <td colspan="100%" class="text-center">
+                        <div class="spinner-border" role="status">
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+      </table>
+</div>

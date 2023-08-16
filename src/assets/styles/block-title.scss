@@ -1,0 +1,23 @@
+.block-page {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5.5px 0 rgba(0, 0, 0, 0.02);
+    border: solid 1.5px #fff;
+    background-color: #fff;
+
+    .title {
+        color: #2d3748;
+        font-weight: bold;
+        .icone {
+            padding: 15px;
+            border-radius: 12px;
+            background-color: #4fd1c5;
+            margin-right: 25px;
+
+            img {
+                width: 43px;
+            }
+        }
+    }
+}

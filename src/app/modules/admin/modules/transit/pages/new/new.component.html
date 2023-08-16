@@ -1,0 +1,26 @@
+<!-- <app-form-search></app-form-search> -->
+
+<app-steper [steps]="steps"></app-steper>
+
+<div class="page-specifique-content">
+    <div [class.d-none]="activeStep !== 'po'">
+        <app-list-po (selectPOEvent)="selectPO($event)" [selectedPO]="selectedPO"></app-list-po>
+    </div>
+
+    <div [class.d-none]="activeStep !== 'article'">
+        <app-form-detail [po]="selectedPO" (selectArticleEvent)="selectArticle($event)" [listArticles]="listArticles"></app-form-detail>
+    </div>
+
+    <div [class.d-none]="activeStep !== 'justif'">
+        <app-piece-jointe></app-piece-jointe>
+    </div>
+
+    <div [class.d-none]="activeStep !== 'confirm'">
+        <app-recap [po]="selectedPO" [listArticles]="listArticles"></app-recap>
+    </div>
+
+    <div class="actions d-flex">
+        <button class="d-flex align-items-center btn app-btn-outline-dark" (click)="prev()">Précédent</button>
+        <button class="d-flex align-items-center btn app-btn-primary" (click)="next()">Continuer</button>
+    </div>
+</div>

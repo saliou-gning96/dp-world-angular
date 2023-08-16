@@ -1,0 +1,26 @@
+.detail {
+    margin-top: 50px;
+}
+
+.table-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #565656;
+    margin: 50px 0px 30px 0;
+}
+
+
+table {
+    tr{
+        height: 60px;
+        vertical-align: middle;
+
+        &.active {
+            background-color: #4fd1c5;
+
+            th, td {
+                background-color: unset;
+            }
+        }
+    }
+}

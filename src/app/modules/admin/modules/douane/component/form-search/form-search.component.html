@@ -1,0 +1,21 @@
+<div class="block-page d-flex align-items-center justify-content-between">
+    <div class="title d-flex align-items-center">
+        <div class="icone">
+            <img src="assets/images/dossier-large.svg" alt="">
+        </div>
+        <div>Créez un dossier douane</div>
+    </div>
+    <div class="form-search d-flex">
+        <div class="select-item">
+            <ng-select [items]="cars" 
+                    bindLabel="name" 
+                    bindValue="id" 
+                    [(ngModel)]="selectedCar">
+            </ng-select>
+        </div>
+        <button class="d-flex align-items-center btn">
+            <img src="assets/images/dossier-large.svg" alt="">
+            <span>RECHERCHER</span>
+        </button>
+    </div>
+</div>

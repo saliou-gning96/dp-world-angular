@@ -1,0 +1,41 @@
+.active-page {
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5.5px 0 rgba(0, 0, 0, 0.02);
+    border: solid 1.5px #fff;
+    // background-image: linear-gradient(94deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.8) 109%);
+    background-color: #fff;
+
+    .title {
+        color: #2d3748;
+        font-weight: bold;
+        .icone {
+            padding: 15px;
+            border-radius: 12px;
+            background-color: #4fd1c5;
+            margin-right: 25px;
+
+            img {
+                width: 43px;
+            }
+        }
+    }
+    .link {
+        padding: 15px 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 5.5px 0 rgba(0, 0, 0, 0.06);
+        background-color: #5154b6;
+        font-size: 14px;
+        
+        a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        img {
+            width: 28px;
+            margin-right: 25px;
+        }
+    }
+}

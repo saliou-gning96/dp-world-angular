@@ -1,0 +1,32 @@
+<div class="page-specifique-content">
+    <div class="table-title">
+        Liste des dossiers transit
+    </div>
+
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Numéro</th>
+                <th scope="col">PO</th>
+                <th scope="col">Département</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="!isLoading">
+                <tr *ngFor="let transit of listTransit">
+                    <th scope="row">{{ transit.Numero }}</th>
+                    <td>{{ transit.NumeroPO }}</td>
+                    <td>{{ transit.Departement }}</td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="isLoading">
+                <tr>
+                    <td colspan="100%" class="text-center">
+                        <div class="spinner-border" role="status">
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+      </table>
+</div>

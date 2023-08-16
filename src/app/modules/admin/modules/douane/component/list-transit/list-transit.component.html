@@ -1,0 +1,63 @@
+<div class="d-flex search">
+    <div class="select-item">
+        <ng-select [items]="listDepartment | async" 
+                placeholder="Département"
+                bindLabel="Code" 
+                bindValue="Code" 
+                [(ngModel)]="selectedDepartment">
+        </ng-select>
+    </div>
+    <!-- <div class="select-item">
+        <ng-select [items]="listVendor | async" 
+                placeholder="Fournisseur"
+                bindLabel="Name" 
+                bindValue="Id" 
+                [(ngModel)]="selectedVendor">
+        </ng-select>
+    </div> -->
+    <button class="d-flex align-items-center btn app-btn-primary" (click)="search()">
+        <span>RECHERCHER</span>
+    </button>
+</div>
+
+<div class="table-title">
+    Liste des dossiers transit
+</div>
+
+<table class="table">
+    <thead class="table-light">
+        <tr>
+            <th></th>
+            <th scope="col">Numéro</th>
+            <th scope="col">PO</th>
+            <th scope="col">Département</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="!isLoading">
+            <tr *ngFor="let transit of listTransit" [class.active]="isChecked(transit)">
+                <td>
+                    <input type="checkbox" (click)="selectTransit(transit)" [checked]="isChecked(transit)">
+                </td>
+                <th scope="row">{{ transit.Numero }}</th>
+                <td>{{ transit.NumeroPO }}</td>
+                <td>{{ transit.Departement }}</td>
+            </tr>
+        </ng-container>
+        <ng-container *ngIf="!isLoading && listTransit.length === 0">
+            <tr>
+                <td colspan="100%" class="text-center">
+                    Pas de dossier transit.
+                </td>
+            </tr>
+        </ng-container>
+        <ng-container *ngIf="isLoading">
+            <tr>
+                <td colspan="100%" class="text-center">
+                    <div class="spinner-border" role="status">
+                    </div>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+  </table>

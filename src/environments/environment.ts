@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiUrl: 'https://mpayment.dpworld.sn:60082',
   production: false
 };
 
