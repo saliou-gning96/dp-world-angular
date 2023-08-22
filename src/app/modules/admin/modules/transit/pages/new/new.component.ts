@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../../models/article';
-import { PO } from '../../models/po';
+import { Article } from '../../../../models/article';
+import { PO } from '../../../../models/po';
+import { TransitService } from '../../services/transit/transit.service';
 
 @Component({
   selector: 'app-new',
@@ -37,7 +38,9 @@ export class NewComponent implements OnInit {
   selectedPO: PO|null = null;
   listArticles: Article[] = []
 
-  constructor() { }
+  constructor(
+    private transitService: TransitService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -52,6 +55,9 @@ export class NewComponent implements OnInit {
         break;
       case 'justif':
         this.activeStep = 'confirm';
+        break;
+      case 'confirm':
+        this.postForm()
         break;
     
       default:
@@ -96,12 +102,25 @@ export class NewComponent implements OnInit {
   }
 
   selectArticle(article: Article) {
-    if (this.listArticles.filter(item => item.Numero === article.Numero).length > 1) {
+    if (this.listArticles.filter(item => item.Numero === article.Numero).length === 1) {
       this.listArticles = this.listArticles.filter(item => item.Numero !== article.Numero);
 
       return;
     }
 
     this.listArticles.push(article);
+  }
+
+  postForm()
+  {
+    const data = {
+      Number: this.selectedPO?.Number,
+      UserId: localStorage.getItem('userId'),
+      ListPurchaseOrderLine: this.listArticles.map(item => item.Numero)
+    }
+    
+    this.transitService.postTransit(data).subscribe((data) => {
+      console.log(data)
+    })
   }
 }

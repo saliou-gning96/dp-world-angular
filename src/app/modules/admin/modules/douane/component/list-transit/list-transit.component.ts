@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Transit } from '../../../transit/models/transit';
+import { Transit } from '../../../../models/transit';
 import { DouaneService } from '../../services/douane.service';
 
 @Component({

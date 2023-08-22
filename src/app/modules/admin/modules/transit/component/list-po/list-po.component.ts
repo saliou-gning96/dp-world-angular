@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PO } from '../../models/po';
+import { PO } from '../../../../models/po';
 import { TransitService } from '../../services/transit/transit.service';
 
 @Component({

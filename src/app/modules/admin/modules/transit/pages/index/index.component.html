@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             <ng-container *ngIf="!isLoading">
-                <tr *ngFor="let transit of listTransit">
+                <tr *ngFor="let transit of listTransit" (click)="gotoDetail(transit)">
                     <th scope="row">{{ transit.Numero }}</th>
                     <td>{{ transit.NumeroPO }}</td>
                     <td>{{ transit.Departement }}</td>

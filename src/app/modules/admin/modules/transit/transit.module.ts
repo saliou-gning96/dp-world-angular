@@ -10,6 +10,7 @@ import { FormDetailComponent } from './component/form-detail/form-detail.compone
 import { ListPoComponent } from './component/list-po/list-po.component';
 import { PieceJointeComponent } from './component/piece-jointe/piece-jointe.component';
 import { RecapComponent } from './component/recap/recap.component';
+import { DetailComponent } from './pages/detail/detail.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RecapComponent } from './component/recap/recap.component';
     FormDetailComponent,
     ListPoComponent,
     PieceJointeComponent,
-    RecapComponent
+    RecapComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,

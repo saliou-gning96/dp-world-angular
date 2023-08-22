@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Article } from '../../../../models/article';
-import { PO } from '../../../../models/po';
 
 @Component({
   selector: 'app-recap',
@@ -10,8 +9,6 @@ import { PO } from '../../../../models/po';
 export class RecapComponent implements OnInit {
 
   @Input() listArticles: Article[] = [];
-  @Input() po: PO|null = null;
-
   constructor() { }
 
   ngOnInit(): void {

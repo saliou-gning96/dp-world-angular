@@ -1,7 +1,7 @@
 import { Target } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Article } from '../../models/article';
-import { PO } from '../../models/po';
+import { Article } from '../../../../models/article';
+import { PO } from '../../../../models/po';
 import { TransitService } from '../../services/transit/transit.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class FormDetailComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['po'] && this.po) {
       this.transitService.getListArticle({numPO: this.po?.Number}).subscribe((data: any) => {
-        this.listArticles = data;
+        this.articles = data;
         this.isLoading = false;
       })
     }
@@ -40,6 +40,6 @@ export class FormDetailComponent implements OnInit, OnChanges {
 
   isChecked(article: Article): boolean
   {
-    return this.listArticles.filter(item => item.Numero === article.Numero).length > 1;
+    return this.listArticles.filter(item => item.Numero === article.Numero).length === 1;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Transit } from '../../models/transit';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Transit } from '../../../../models/transit';
 import { TransitService } from '../../services/transit/transit.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class IndexComponent implements OnInit {
   isLoading = true;
   public listTransit: Transit[] = [];
   constructor(
-    private transitService: TransitService
+    private transitService: TransitService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -20,6 +23,10 @@ export class IndexComponent implements OnInit {
       this.listTransit = data;
       this.isLoading = false;
     })
+  }
+
+  gotoDetail(transit: Transit) {
+    this.router.navigate([`detail/${transit.Numero}`], { relativeTo: this.route });
   }
 
 }

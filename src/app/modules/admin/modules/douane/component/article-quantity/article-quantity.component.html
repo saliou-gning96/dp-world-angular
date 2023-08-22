@@ -1,1 +1,10 @@
-<p>article-quantity works!</p>
+<div class="recap">
+    <h3>Pour chaque article, renseigner les quantités:</h3>
+
+    <ul>
+        <li *ngFor="let article of listArticles">
+            <div>{{ article.Description }}</div>
+            <input type="text" name="" class="form-control">
+        </li>
+    </ul>
+</div>

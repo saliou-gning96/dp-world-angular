@@ -6,11 +6,11 @@ import { IndexComponent } from './pages/index/index.component';
 import { LayoutComponent } from './layout/layout.component';
 import { FormSearchComponent } from './component/form-search/form-search.component';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
-import { FormDetailComponent } from './component/form-detail/form-detail.component';
 import { NewComponent } from './pages/new/new.component';
 import { ListTransitComponent } from './component/list-transit/list-transit.component';
 import { ListArticleComponent } from './component/list-article/list-article.component';
 import { ArticleQuantityComponent } from './component/article-quantity/article-quantity.component';
+import { RecapComponent } from './component/recap/recap.component';
 
 
 @NgModule({
@@ -18,11 +18,11 @@ import { ArticleQuantityComponent } from './component/article-quantity/article-q
     IndexComponent,
     LayoutComponent,
     FormSearchComponent,
-    FormDetailComponent,
     NewComponent,
     ListTransitComponent,
     ListArticleComponent,
-    ArticleQuantityComponent
+    ArticleQuantityComponent,
+    RecapComponent
   ],
   imports: [
     CommonModule,

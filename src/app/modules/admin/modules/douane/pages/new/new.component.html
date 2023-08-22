@@ -11,8 +11,16 @@
         <app-list-article (selectArticleEvent)="selectArticle($event)" [listArticles]="listArticles" [listTransits]="listTransits" [poNumber]="poNumber"></app-list-article>
     </div>
 
+    <div [class.d-none]="activeStep !== 'quantity'">
+        <app-article-quantity [listArticles]="listArticles"></app-article-quantity>
+    </div>
+
+    <div [class.d-none]="activeStep !== 'confirm'">
+        <app-recap [listArticles]="listArticles"></app-recap>
+    </div>
+
     <div class="actions d-flex">
-        <button class="d-flex align-items-center btn app-btn-outline-dark" (click)="prev()">Précédent</button>
+        <button class="d-flex align-items-center btn app-btn-outline-dark" (click)="prev()" *ngIf="activeStep !== 'transit'">Précédent</button>
         <button class="d-flex align-items-center btn app-btn-primary" (click)="next()">Continuer</button>
     </div>
 </div>

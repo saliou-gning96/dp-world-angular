@@ -20,7 +20,7 @@
     </div>
 
     <div class="actions d-flex">
-        <button class="d-flex align-items-center btn app-btn-outline-dark" (click)="prev()">Précédent</button>
+        <button class="d-flex align-items-center btn app-btn-outline-dark" (click)="prev()" *ngIf="activeStep !== 'po'">Précédent</button>
         <button class="d-flex align-items-center btn app-btn-primary" (click)="next()">Continuer</button>
     </div>
 </div>

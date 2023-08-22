@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../../../transit/models/article';
-import { Transit } from '../../../transit/models/transit';
+import { Article } from '../../../../models/article';
+import { Transit } from '../../../../models/transit';
 
 @Component({
   selector: 'app-new',
@@ -109,7 +109,7 @@ export class NewComponent implements OnInit {
   }
 
   selectArticle(article: Article) {
-    if (this.listArticles.filter(item => item.Numero === article.Numero).length > 1) {
+    if (this.listArticles.filter(item => item.Numero === article.Numero).length === 1) {
       this.listArticles = this.listArticles.filter(item => item.Numero !== article.Numero);
 
       return;

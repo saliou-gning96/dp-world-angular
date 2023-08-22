@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Article } from '../../../transit/models/article';
-import { Transit } from '../../../transit/models/transit';
+import { Article } from '../../../../models/article';
+import { Transit } from '../../../../models/transit';
 import { DouaneService } from '../../services/douane.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class ListArticleComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.listTransits.length && changes['poNumber']) {
-      this.douaneService.getListArticle({numPO: this.listTransits[0].NumeroPO}).subscribe((data: any) => {
+      this.douaneService.getListArticle({numPO: this.poNumber}).subscribe((data: any) => {
         this.articlesTransits = data;
         this.isLoading = false;
       })

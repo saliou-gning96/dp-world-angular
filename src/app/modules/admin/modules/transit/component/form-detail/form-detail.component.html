@@ -38,7 +38,7 @@
     </thead>
     <tbody>
         <ng-container *ngIf="!isLoading">
-            <tr *ngFor="let article of listArticles">
+            <tr *ngFor="let article of articles" [class.active]="isChecked(article)">
                 <td>
                     <input type="checkbox" (click)="selectArticle(article)" [checked]="isChecked(article)">
                 </td>

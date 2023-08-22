@@ -9,14 +9,17 @@
 
         <div class="login-form">
             <div class="title">Se connecter</div>
-            <form>
+            <div class="alert alert-danger" role="alert" *ngIf="badLogin">
+                Login ou mot de passe incorrect
+              </div>
+            <form #form="ngForm" (submit)="postLogin()">
                 <div class="form-group">
                     <label for="login">Login</label>
-                    <input type="email" class="form-control" id="login" placeholder="Entre votre login">
+                    <input name="login" [(ngModel)]="login" type="email" class="form-control" id="login" placeholder="Entre votre login">
                 </div>
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input name="password" [(ngModel)]="password" type="password" class="form-control" id="password" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-green btn-block">Se connecter</button>
               </form>

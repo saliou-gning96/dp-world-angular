@@ -44,4 +44,16 @@ export class TransitService {
       params: params
     })
   }
+
+  getOneTranssit(numero: string|null) {
+    return this.httpClient.get(this.url + '/CustomClearanceAPI/DossierTransit/GetDossierTransit?numeroDossier=' + numero)
+  }
+
+  getOnePO(numero: string|null) {
+    return this.httpClient.get(this.url + `/CustomClearanceAPI/PurchaseOrder/GetPurchaseOrder?numPo=${numero}`)
+  }
+
+  postTransit(data = {}) {
+    return this.httpClient.post(this.url + `/CustomClearanceAPI/DossierTransit/CreateDossierTransit`, data)
+  }
 }

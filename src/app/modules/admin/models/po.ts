@@ -1,5 +1,5 @@
 export interface PO {
-    Key: string
+    Key?: string
     Number?: string
     DepartmentDescription?: string
     TotalCost?: string

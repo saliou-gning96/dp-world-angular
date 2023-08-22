@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormDetailComponent } from './form-detail.component';
+import { RecapComponent } from './recap.component';
 
-describe('FormDetailComponent', () => {
-  let component: FormDetailComponent;
-  let fixture: ComponentFixture<FormDetailComponent>;
+describe('RecapComponent', () => {
+  let component: RecapComponent;
+  let fixture: ComponentFixture<RecapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormDetailComponent ]
+      declarations: [ RecapComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormDetailComponent);
+    fixture = TestBed.createComponent(RecapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

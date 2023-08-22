@@ -1,0 +1,62 @@
+<div class="page-specifique-content">
+    <div class="table-title">
+        Dossier transit {{ transit?.Numero }}
+    </div>
+
+    <div class="detail" *ngIf="po">
+        <div class="row">
+            <div class="col-4">
+                <app-input [label]="'Supplier'" [value]="po?.Number" [disabled]="true"></app-input>
+            </div>
+            <div class="col-4">
+                <app-input [label]="'Ordered'" [value]="po?.OrderDate" [disabled]="true"></app-input>
+            </div>
+            <div class="col-4">
+                <app-input [label]="'Buyer'" [disabled]="true" [value]="po?.DepartmentCode"></app-input>
+            </div>
+        </div>
+        <div class="row mt-50">
+            <div class="col-4">
+                <app-input [label]="'Department Name'" [value]="po?.DepartmentDescription" [disabled]="true"></app-input>
+            </div>
+            <div class="col-4">
+                <app-input [label]="'Date Del EXW'" [value]="po?.OrderDate" [disabled]="true"></app-input>
+            </div>
+            <div class="col-4">
+                <app-input [label]="'Réquisition N°'" [disabled]="true"></app-input>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-specifique-content" *ngIf="transit?.ListArticle">
+    <div class="table-title">
+        Liste des articles
+    </div>
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">Numéro</th>
+                <th scope="col">Description</th>
+                <th scope="col">Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="!isLoading">
+                <tr *ngFor="let article of transit.ListArticle">
+                    <th scope="row">{{ article.Numero }}</th>
+                    <td>{{ article.Description }}</td>
+                    <td>{{ article.Prix }}</td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="isLoading">
+                <tr>
+                    <td colspan="100%" class="text-center">
+                        <div class="spinner-border" role="status">
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

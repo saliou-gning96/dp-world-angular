@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Article } from '../../../../models/article';
 
 @Component({
   selector: 'app-article-quantity',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-quantity.component.scss']
 })
 export class ArticleQuantityComponent implements OnInit {
+
+  @Input() listArticles: Article[] = [];
 
   constructor() { }
 
